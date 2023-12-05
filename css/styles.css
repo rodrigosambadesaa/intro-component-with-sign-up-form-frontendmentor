@@ -183,6 +183,7 @@ input:focus-visible {
   font-size: 0.9rem;
   font-weight: 600;
   transition: all ease-in-out 0.3s;
+  white-space: nowrap;
 }
 
 .tnc {
