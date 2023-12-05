@@ -162,7 +162,6 @@ input:focus-visible {
   right: 3%;
   top: 25%;
   position: absolute;
-  align-items: right;
   background-image: url("images/icon-error.svg");
   background-repeat: no-repeat;
   height: 2.5rem;
