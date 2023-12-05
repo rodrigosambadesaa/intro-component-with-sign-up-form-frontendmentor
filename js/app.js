@@ -1,5 +1,18 @@
 "use strict"
 
+const form = document.querySelector('.main-form')
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
+  alert(document.querySelector('[name="first-name"]').value)
+
+
+})
+
+document.querySelector('a').addEventListener('click', function (e) {
+  e.preventDefault()
+})
+
 const submitBtn = document.getElementById("submit-info")
 
 // User name
@@ -95,16 +108,17 @@ let errorFunc = function () {
 
   if (userNameValueLength > 0 && userLastNameValueLength > 0 && userEmail.value.match(emailValidation) && userPass.value.match(passValidation)) {
     successMsg.textContent = "Success! Please check your email"
+    form.submit()
   } else {
     console.log("Unknown error")
   }
 }
 
-// Click with mouse
-submitBtn.addEventListener("click", function (e) {
-  e.preventDefault()
-  errorFunc()
-})
+// // Click with mouse
+// submitBtn.addEventListener("click", function (e) {
+//   e.preventDefault()
+//   errorFunc()
+// })
 
 // Click with Enter
 userName.addEventListener("keyup", function (e) {
