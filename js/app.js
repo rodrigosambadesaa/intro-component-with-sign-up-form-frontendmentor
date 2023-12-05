@@ -2,22 +2,22 @@
 
 const submitBtn = document.getElementById("submit-info")
 
-//USERNAME
+// User name
 const userName = document.querySelector(".first-name")
 const nameLabel = document.querySelector(".name-label")
 const nameError = document.querySelector(".first-name-error")
 
-//LASTNAME
+// Last name
 const userLastName = document.querySelector(".last-name")
 const lastNameLabel = document.querySelector(".lastname-label")
 const lastNameError = document.querySelector(".last-name-error")
 
-//EMAIL
+// Email
 const userEmail = document.querySelector(".user-email")
 const emailLabel = document.querySelector(".email-label")
 const emailError = document.querySelector(".user-email-error")
 
-//PASS
+// Password
 const userPass = document.querySelector(".user-pass")
 const passLabel = document.querySelector(".pass-label")
 const passError = document.querySelector(".user-pass-error")
@@ -29,25 +29,28 @@ let passValidation = /^[A-Za-z]\w{7,14}$/
 
 let errorFunc = function () {
 
-  if (userName.value.length === 0) {
+  let userNameValueLength = userName.value.length
+  let userLastNameValueLength = userLastName.value.length
+
+  if (userNameValueLength === 0) {
     nameLabel.textContent = "First Name cannot be empty"
     userName.style.borderColor = "red"
     nameError.style.display = "inline"
   }
 
-  if (userLastName.value.length === 0) {
+  if (userLastNameValueLength === 0) {
     lastNameLabel.textContent = "Last Name cannot be empty"
     userLastName.style.borderColor = "red"
     lastNameError.style.display = "inline"
   }
 
-  if (userName.value.length > 0) {
+  if (userNameValueLength > 0) {
     nameLabel.textContent = ""
     userName.style.borderColor = "var(--grayish-blue)"
     nameError.style.display = "none"
   }
 
-  if (userLastName.value.length > 0) {
+  if (userLastNameValueLength > 0) {
     lastNameLabel.textContent = ""
     userLastName.style.borderColor = "var(--grayish-blue)"
     lastNameError.style.display = "none"
@@ -90,25 +93,20 @@ let errorFunc = function () {
     passError.style.display = "none"
   }
 
-  if (
-    userName.value.length > 0 &&
-    userLastName.value.length > 0 &&
-    userEmail.value.match(emailValidation) &&
-    userPass.value.match(passValidation)
-  ) {
+  if (userNameValueLength > 0 && userLastNameValueLength > 0 && userEmail.value.match(emailValidation) && userPass.value.match(passValidation)) {
     successMsg.textContent = "Success! Please check your email"
   } else {
-    console.log("Unkown error")
+    console.log("Unknown error")
   }
 }
 
-//CLick with mouse
+// Click with mouse
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault()
   errorFunc()
 })
 
-//Click with Enter
+// Click with Enter
 userName.addEventListener("keyup", function (e) {
   if (e.keyCode === 13) {
     e.preventDefault()
