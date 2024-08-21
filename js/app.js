@@ -65,8 +65,10 @@ form.addEventListener('submit', function (event) {
 
   if (userNameValueLength > 0 && userLastNameValueLength > 0 && userEmail.value.match(emailValidation) && userPass.value.match(passValidation)) {
     successMsg.textContent = "Success! Please check your email"
-    form.submit()
+    setTimeout(() => {
+      form.submit()
+    }, 5000)
   } else {
     console.log("Unknown error")
   }
-});
+})
